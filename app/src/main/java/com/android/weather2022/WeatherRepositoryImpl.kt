@@ -1,6 +1,7 @@
 package com.android.weather2022
 
-class RepositoryImpl: Repository {
+class WeatherRepositoryImpl: WeatherRepository {
+
     override fun getWeather(lat: Double, lon: Double): Weather {
         return Weather()
     }
