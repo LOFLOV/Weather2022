@@ -33,6 +33,13 @@ class HomeFragment : Fragment() {
                 binding.tvDegree.text = weather.temperature.toString()
             }
         })
+        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
+            if (error == true) {
+                binding.tvError.visibility = View.VISIBLE
+            } else {
+                binding.tvError.visibility = View.GONE
+            }
+        })
         viewModel.getWeatherData()
     }
 }
