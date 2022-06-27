@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.android.weather2022.databinding.FragmentMainBinding
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentMainBinding
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +23,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 }
