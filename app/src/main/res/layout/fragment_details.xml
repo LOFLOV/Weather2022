@@ -5,7 +5,7 @@
     android:id="@+id/swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.home.HomeFragment">
+    tools:context=".view.details.DetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,7 +75,16 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="12C"
-                android:textSize="80sp" />
+                android:textSize="100sp" />
+
+            <TextView
+                android:id="@+id/tv_feels_like"
+                android:layout_width="match_parent"
+                android:layout_height="465dp"
+                android:layout_weight="6"
+                android:gravity="center"
+                android:text="feels like : 11C"
+                android:textSize="25sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,17 +99,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_country_code"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Country code"
-                        android:textSize="20sp" />
-
-                    <TextView
                         android:id="@+id/tv_city_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="City name"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/tv_country_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Country code"
                         android:textSize="17sp" />
 
                 </LinearLayout>

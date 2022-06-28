@@ -1,4 +1,4 @@
-package com.android.weather2022.view.home
+package com.android.weather2022.view.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.android.weather2022.network.repository.WeatherRepository
 import com.android.weather2022.network.repository.WeatherRepositoryImpl
 import kotlin.random.Random
 
-class HomeViewModel : ViewModel() {
+class DetailsViewModel : ViewModel() {
 
     private val weatherRepository: WeatherRepository = WeatherRepositoryImpl()
 
