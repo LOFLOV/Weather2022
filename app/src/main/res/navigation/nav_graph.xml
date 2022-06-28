@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/cityFragment">
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.android.weather2022.view.home.HomeFragment"
+        android:name="com.android.weather2022.view.details.DetailsFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.android.weather2022.view.home.CityFragment"
+        android:label="CityFragment" />
 </navigation>
