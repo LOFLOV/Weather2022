@@ -1,14 +1,15 @@
-package com.android.weather2022
+package com.android.weather2022.view.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.text.trimmedLength
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.android.weather2022.network.entity.Weather
 import com.android.weather2022.databinding.FragmentMainBinding
+import com.android.weather2022.extensions.switchVisibility
 
 class HomeFragment : Fragment() {
 

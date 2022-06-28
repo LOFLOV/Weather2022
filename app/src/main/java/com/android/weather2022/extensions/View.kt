@@ -1,4 +1,4 @@
-package com.android.weather2022
+package com.android.weather2022.extensions
 
 import android.view.View
 

@@ -1,4 +1,6 @@
-package com.android.weather2022
+package com.android.weather2022.network.repository
+
+import com.android.weather2022.network.entity.Weather
 
 class WeatherRepositoryImpl: WeatherRepository {
 

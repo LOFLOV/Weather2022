@@ -1,7 +1,8 @@
-package com.android.weather2022
+package com.android.weather2022.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.weather2022.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

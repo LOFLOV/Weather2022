@@ -1,8 +1,11 @@
-package com.android.weather2022
+package com.android.weather2022.view.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.weather2022.network.entity.Weather
+import com.android.weather2022.network.repository.WeatherRepository
+import com.android.weather2022.network.repository.WeatherRepositoryImpl
 import kotlin.random.Random
 
 class HomeViewModel : ViewModel() {
