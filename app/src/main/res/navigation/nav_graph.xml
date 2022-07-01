@@ -9,9 +9,20 @@
         android:id="@+id/mainFragment"
         android:name="com.android.weather2022.view.details.DetailsFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="navDeteilsArg"
+            app:argType="com.android.weather2022.network.entity.Weather" />
+    </fragment>
     <fragment
         android:id="@+id/cityFragment"
         android:name="com.android.weather2022.view.home.CityFragment"
-        android:label="CityFragment" />
+        android:label="CityFragment" >
+        <action
+            android:id="@+id/action_cityFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_cityFragment"
+        app:popUpTo="@id/cityFragment" />
 </navigation>
