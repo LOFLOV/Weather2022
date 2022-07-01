@@ -1,4 +1,4 @@
-package com.android.weather2022.view.home
+package com.android.weather2022.view.city
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.weather2022.R
 import com.android.weather2022.network.entity.Weather
 
-class CityAdapter: RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
-
-    private var cityList: List<Weather> = listOf()
+class CityAdapter(
+    private var cityList: List<Weather>,
+    private val onClickListener: MyOnClickListener
+): RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_city, parent, false)
@@ -20,6 +21,9 @@ class CityAdapter: RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
         val weather = cityList[position]
         holder.bind(weather)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClicked(weather)
+        }
     }
 
     override fun getItemCount(): Int = cityList.size
@@ -29,12 +33,16 @@ class CityAdapter: RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val cityName = itemView.findViewById<TextView>(R.id.tv_item_city)
+        private val cityNameTextView = itemView.findViewById<TextView>(R.id.tv_item_city)
 
         fun bind(weather: Weather) {
-            cityName.text = weather.city.name
+            cityNameTextView.text = weather.city.name
         }
+    }
+
+    interface MyOnClickListener {
+        fun onClicked(weather: Weather)
     }
 }

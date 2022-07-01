@@ -1,4 +1,4 @@
-package com.android.weather2022.view.home
+package com.android.weather2022.view.city
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

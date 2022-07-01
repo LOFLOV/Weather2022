@@ -1,14 +1,17 @@
-package com.android.weather2022.view.home
+package com.android.weather2022.view.city
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.android.weather2022.databinding.FragmentCityBinding
+import com.android.weather2022.network.entity.Weather
 
 class CityFragment: Fragment() {
 
@@ -29,7 +32,12 @@ class CityFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(CityViewModel::class.java)
-        adapter = CityAdapter()
+        adapter = CityAdapter(listOf(), object: CityAdapter.MyOnClickListener {
+            override fun onClicked(weather: Weather) {
+                Log.d("AAA", "tag ${weather.city.name}")
+                findNavController().navigate(CityFragmentDirections.actionCityFragmentToMainFragment(weather))
+            }
+        })
         binding.rvCity.adapter = adapter
 
         DividerItemDecoration(context, DividerItemDecoration.VERTICAL).also {

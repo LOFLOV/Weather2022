@@ -5,16 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.android.weather2022.databinding.FragmentDetailsBinding
-import com.android.weather2022.extensions.switchVisibility
-import com.android.weather2022.network.entity.Weather
 
 class DetailsFragment : Fragment() {
 
     lateinit var binding: FragmentDetailsBinding
-    lateinit var viewModel: DetailsViewModel
+    private val args: DetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,17 +23,12 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
 
-        viewModel.weatherLiveData.observe(viewLifecycleOwner, object: Observer<Weather> {
-            override fun onChanged(weather: Weather) {
-                binding.tvCityName.text = weather.city.name
-                binding.tvDegree.text = weather.temperature.toString()
-            }
-        })
-        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
-            binding.tvError.switchVisibility(error)
-        })
-        viewModel.getWeatherData()
+        with(binding) {
+            tvCityName.text = args.navDeteilsArg.city.name
+            tvDegree.text = "${args.navDeteilsArg.temperature}'C"
+            tvFeelsLike.text = "feels like:${args.navDeteilsArg.feelsLike}'C"
+            tvCountryCode.text = "${args.navDeteilsArg.city.lat} / ${args.navDeteilsArg.city.lon}"
+        }
     }
 }
